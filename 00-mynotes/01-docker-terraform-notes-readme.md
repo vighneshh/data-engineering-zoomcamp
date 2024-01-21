@@ -15,13 +15,21 @@ follow steps from here: https://docs.docker.com/desktop/install/windows-install/
 
 ##  Commands I that tried
 1. To check Docker is working
-```$ docker run helloworld```
-2. To start linux shell
-```$ docker run -it ubuntu bash```
-3. To start python
-```$ docker run -it python:3.9```
-4. To get python and open linux shell so we can install other python modules
-```$ docker run -it --entrypoint=bash python:3.9```
+```cmd
+$ docker run helloworld
+```
+3. To start linux shell
+```cmd
+$ docker run -it ubuntu bash
+```
+4. To start python
+```cmd
+$ docker run -it python:3.9
+```
+6. To get python and open linux shell so we can install other python modules
+```cmd
+$ docker run -it --entrypoint=bash python:3.9
+```
 
 ## Script for creating simple data pipeline using Docker 
 script for pipeline.py
@@ -85,10 +93,14 @@ On windows Docker Desktop application must be running at least first after downl
 https://stackoverflow.com/questions/40459280/docker-cannot-start-on-windows
 
 ## 2. Gave Wintpy error on this command
-```$ docker run -it ubuntu bash```
+```
+$ docker run -it ubuntu bash
+```
 
 Error: the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
 Error resolved by uisng this:
 
-```$ wintpy docker run -it ubuntu bash```
+```
+$ wintpy docker run -it ubuntu bash
+```
 
