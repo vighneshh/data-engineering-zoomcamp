@@ -19,7 +19,9 @@ https://stackoverflow.com/questions/40459280/docker-cannot-start-on-windows
 
 ## 2. Gave Wintpy error on this command
 ```$ docker run -it ubuntu bash```
+
 Error: the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
 Error resolved by uisng this:
+
 ```$ wintpy docker run -it ubuntu bash```
 
