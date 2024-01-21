@@ -1,6 +1,6 @@
 # :movie_camera: DE Zoomcamp 1.2.1 - Introduction to Docker
 
-## Docker
+## What is a Docker
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
 
 ## What is a data pipeline?
