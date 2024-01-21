@@ -11,3 +11,14 @@ By exporting our Docker images to Cloud providers such as Amazon Web Services or
 
 ## Installing Docker on Windows
 follow steps from here: https://docs.docker.com/desktop/install/windows-install/
+
+##  Error and Debugging
+## 1. Docker cannot start on Windows
+On windows Docker Desktop application must be running to work on docker
+https://stackoverflow.com/questions/40459280/docker-cannot-start-on-windows
+
+## 2. Gave Wintpy error on this command
+'''$ docker run -it ubuntu bash'''
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+'''$ wintpy docker run -it ubuntu bash'''
+
