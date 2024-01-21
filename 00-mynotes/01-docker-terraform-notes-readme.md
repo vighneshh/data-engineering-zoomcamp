@@ -45,7 +45,7 @@ We can run this script with `python pipeline.py <some_number>` and it should pri
 * `['pipeline.py', '<some_number>']`
 * `job finished successfully for day = <some_number>`
 
-Let's containerize it by creating a Docker image. Create the folllowing `Dockerfile` file:
+ Create the folllowing `Dockerfile` file to create container.
 
 ```dockerfile
 # base Docker image that we will build on
@@ -65,14 +65,14 @@ ENTRYPOINT ["python", "pipeline.py"]
 ```
 
 Buidling Image:
-```ssh
+```
 docker build -t test:pandas .
 ```
-* The image name will be `test` and its tag will be `pandas`. If the tag isn't specified it will default to `latest`.
+* The image name will be `test` and its tag will be `pandas`. or else docker take it as  `latest`.
 
 We can now run the container and pass an argument to it, so that our pipeline will receive it:
 
-```ssh
+```
 docker run -it test:pandas some_number
 ```
 
