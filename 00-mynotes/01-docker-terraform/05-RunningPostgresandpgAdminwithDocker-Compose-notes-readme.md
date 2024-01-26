@@ -45,5 +45,6 @@ docker-compose up
 ```
 docker-compose down
 ```
+data remain converse after stop and restarting docker-compose
 
-## Need to find way to connect to previous images using docker-compose
+## Need to find way to connect to previous images docker using docker-compose
