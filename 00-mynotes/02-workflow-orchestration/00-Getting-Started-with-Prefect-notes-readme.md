@@ -32,6 +32,25 @@ prefect agent start -q 'default'
 ```
 prefect cloud login
 ```
+## Use this command to prefect command using api key
+``` 
+prefect cloud login --key pnu_0sPiIMkgF2kMdBG4av9hDXAQB7Ljd84eKtj1 --workspace vighneshgawad/default
+```
+
+## Run apply command again so cloud can pick up
+```
+prefect deployment apply hello_world-deployment.yaml
+```
+## Run agent again so cloud can pick up
+```
+prefect agent start -q 'default'
+```
+
+## deploy code on github and create github block so deployment can take code from github repo but you still need to run agent on local
+```
+prefect deployment build hello-prefect.py:hello_world --name second-deployment --tag dev -sb github/github-helloworld -a
+```
+
 
 
 
