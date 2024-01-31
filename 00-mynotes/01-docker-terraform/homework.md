@@ -25,6 +25,7 @@ Which tag has the following text? - *Automatically remove the container when it 
 - `--rmc`
 - `--rm`
 
+Answer: `--rm`
 
 ## Question 2. Understanding docker first run 
 
@@ -37,6 +38,11 @@ What is version of the package *wheel* ?
 - 1.0.0
 - 23.0.1
 - 58.1.0
+
+`docker run -it --entrypoint=bash python:3.9`
+
+
+Answer: - 0.42.0 
 
 
 # Prepare Postgres
@@ -66,6 +72,18 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 15859
 - 89009
 
+
+answer:
+```SELECT
+ count(*)
+ FROM public.green_taxi_trips
+where (lpep_pickup_datetime >= '2019-09-18 00:00:000' and lpep_pickup_datetime < '2019-09-19 00:00:000'
+	   and lpep_dropoff_datetime >= '2019-09-18 00:00:00'
+	  and lpep_dropoff_datetime < '2019-09-19 00:00:00');
+```
+15612
+
+
 ## Question 4. Largest trip for each day
 
 Which was the pick up day with the largest trip distance
@@ -76,6 +94,16 @@ Use the pick up time for your calculations.
 - 2019-09-26
 - 2019-09-21
 
+Answer: 
+```
+SELECT
+lpep_pickup_datetime
+ FROM public.green_taxi_trips
+ where trip_distance = ( SELECT 
+ max(trip_distance)
+FROM green_taxi_trips);
+```
+2019-09-26
 
 ## Question 5. Three biggest pick up Boroughs
 
@@ -88,6 +116,24 @@ Which were the 3 pick up Boroughs that had a sum of total_amount superior to 500
 - "Bronx" "Manhattan" "Queens" 
 - "Brooklyn" "Queens" "Staten Island"
 
+Answer:
+```
+select d."Borough"
+from(
+select c."Borough",
+    sum(c.total_amount) as total_amount
+from (select b."Borough",total_amount
+from green_taxi_trips a
+left join taxizone b
+on a."PULocationID" = b."LocationID"
+where b."Borough" <> 'Unknown' and 
+(lpep_pickup_datetime >= '2019-09-18 00:00:000' 
+ and lpep_pickup_datetime < '2019-09-19 00:00:000')) c
+group by c."Borough") d
+where d.total_amount >= 50000;
+```
+
+- "Brooklyn" "Manhattan" "Queens"
 
 ## Question 6. Largest tip
 
@@ -101,6 +147,22 @@ Note: it's not a typo, it's `tip` , not `trip`
 - JFK Airport
 - Long Island City/Queens Plaza
 
+Answer:
+```
+select e."Zone",max(tip_amount) as tip
+from green_taxi_trips a
+inner join taxizone b
+on a."PULocationID" = b."LocationID"
+inner join taxizone e
+on a."DOLocationID" =  e."LocationID" 
+where b."Zone" = 'Astoria' and 
+(lpep_pickup_datetime >= '2019-09-01 00:00:000' 
+ and lpep_pickup_datetime < '2019-10-01 00:00:000')
+ group by e."Zone"
+ order by tip desc;
+ ```
+
+ JFK Airport
 
 
 ## Terraform
