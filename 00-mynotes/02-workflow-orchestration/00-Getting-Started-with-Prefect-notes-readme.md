@@ -58,7 +58,11 @@ prefect agent start -q 'default'
 ```
 prefect deployment build hello-prefect.py:hello_world --name second-deployment --tag dev -sb github/github-helloworld -a
 ```
-
+## To change instance of Deployment server. Need to change ENV Variables
+```
+prefect config view
+prefect config set PREFECT_API_URL="http://127.0.0.1:4200/api"
+```
 
 
 
