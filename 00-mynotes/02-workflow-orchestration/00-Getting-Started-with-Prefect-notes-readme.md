@@ -12,6 +12,14 @@ python -m venv prefectvenv
  prefectvenv/Scripts/activate.bat //In CMD
  prefectvenv/Scripts/Activate.ps1 //In Powershel
 ```
+## Install perfect 
+```
+pip install -U prefect
+```
+## Check if installation is right
+```
+prefect version
+```
 ## To start local prefect instance
  ```
  prefect server start
