@@ -61,6 +61,8 @@ prefect deployment build hello-prefect.py:hello_world --name second-deployment -
 ## To change instance of Deployment server. Need to change ENV Variables
 ```
 prefect config view
+```
+```
 prefect config set PREFECT_API_URL="http://127.0.0.1:4200/api"
 ```
 
