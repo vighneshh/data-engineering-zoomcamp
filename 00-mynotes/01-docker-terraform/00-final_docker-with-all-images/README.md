@@ -18,7 +18,7 @@ docker compose up -d
 ```
 docker compose down
 ```
-# For set up refer this: [Superset with docker](https://medium.com/towards-data-engineering/quick-setup-configure-superset-with-docker-a5cca3992b28)
+###  For set up refer this: [Superset with docker](https://medium.com/towards-data-engineering/quick-setup-configure-superset-with-docker-a5cca3992b28)
 # Superset url: 
 ```
 http://localhost:8085/
@@ -27,14 +27,12 @@ http://localhost:8085/
 ```
 http://localhost:8088
 ```
-# [Run PySpark and Jupyter Notebook using Docker](https://medium.com/analytics-vidhya/run-pyspark-and-jupyter-notebook-using-docker-bed12ecb755a)
+### [Run PySpark and Jupyter Notebook using Docker](https://medium.com/analytics-vidhya/run-pyspark-and-jupyter-notebook-using-docker-bed12ecb755a)
 # Access Pyspark with jupiter lab 
 ```
 http://127.0.0.1:8888/?token=YOUR_TOKEN
 ```
-# 
-# Refer this repo for prefect docker [prefect-docker-compose
-](https://github.com/rpeden/prefect-docker-compose)
+### Refer this repo for prefect docker [prefect-docker-compose](https://github.com/rpeden/prefect-docker-compose)
 
 # To run Prefect Server, open a terminal, navigate to the directory where you cloned this repository, and run:
 ```
