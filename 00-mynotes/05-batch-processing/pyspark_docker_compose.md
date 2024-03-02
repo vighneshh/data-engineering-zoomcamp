@@ -1,6 +1,6 @@
 ## Using Apache Spark and Jupiter Notebook in Docker Compose
 
-These steps are taken from this medium aricle.
+These steps are taken from this medium article.
 [Run PySpark and Jupyter Notebook using Docker](https://medium.com/analytics-vidhya/run-pyspark-and-jupyter-notebook-using-docker-bed12ecb755a)
 
 
