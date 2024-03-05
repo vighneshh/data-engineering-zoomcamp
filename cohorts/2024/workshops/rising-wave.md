@@ -150,10 +150,19 @@ Options:
 
 ## Submitting the solutions
 
-- Form for submitting: TBA
-- You can submit your homework multiple times. In this case, only the
-last submission will be used.
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/workshop2
+- Deadline: 11 March (Monday), 23:00 CET 
 
-Deadline: TBA
+## Rewards 🥳
+
+Everyone who completes the homework will get a pen and a sticker, and 5 lucky winners will receive a Tshirt and other secret surprises!
+We encourage you to share your achievements with this workshop on your socials and look forward to your submissions 😁
+
+- Follow us on **LinkedIn**: https://www.linkedin.com/company/risingwave
+- Follow us on **GitHub**: https://github.com/risingwavelabs/risingwave
+- Join us on **Slack**: https://risingwave-labs.com/slack
+
+See you around!
+
 
 ## Solution
