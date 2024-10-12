@@ -25,12 +25,10 @@ Syllabus
 
 ## Taking the course
 
-### 2024 Cohort
+### 2025 Cohort 
 
-* **Start**: 15 January 2024 (Monday) at 17:00 CET
+* **Start**: January 2025
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Cohort folder](cohorts/2024/) with homeworks and deadlines
-* [Launch stream with course overview](https://www.youtube.com/live/AtRhA-NfS24?si=5JzA_E8BmJjiLi8l)
 
 
 ### Self-paced mode
@@ -45,6 +43,8 @@ can take the course at your own pace
 
 
 ## Syllabus
+
+We encourage [Learning in Public](learning-in-public.md)
 
 > **Note:** NYC TLC changed the format of the data we use to parquet.
 > In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
