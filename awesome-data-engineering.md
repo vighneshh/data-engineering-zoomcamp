@@ -38,7 +38,7 @@ Conference talks from companies, blog posts, etc
 ### Coding & Python
 
 * [CS50's Introduction to Computer Science | edX](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) (course)
-* [Python for Everybody SpecializsationSpecialization](https://www.coursera.org/specializations/python) (course)
+* [Python for Everybody Specialization](https://www.coursera.org/specializations/python) (course)
 * [Practical Python programming](https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md)
 
 
@@ -71,7 +71,7 @@ Conference talks from companies, blog posts, etc
 ### Data warehousing
 
 
-* [Guide to Data Warehousing. Short and comprehensive information… | by Tomas Peluritis](https://towardsdatascience.com/guide-to-data-warehousing-6fdcf30b6fbe) (blog post) 
+* [Guide to Data Warehousing. Short and comprehensive information… | by Tomas Peluritis](https://medium.com/towards-data-science/guide-to-data-warehousing-6fdcf30b6fbe) (blog post) 
 * [Snowflake, Redshift, BigQuery, and Others: Cloud Data Warehouse Tools Compared](https://www.altexsoft.com/blog/snowflake-redshift-bigquery-data-warehouse-tools/) (blog post)
 
 
@@ -171,7 +171,9 @@ Conference talks from companies, blog posts, etc
 ### Resource aggregators
 
 * [Reading List](https://www.scling.com/reading-list/) by Lars Albertsson
-* [GitHub - igorbarinov/awesome-data-engineering](https://github.com/igorbarinov/awesome-data-engineering) (focus is more on tools)  
+* [GitHub - igorbarinov/awesome-data-engineering](https://github.com/igorbarinov/awesome-data-engineering) (focus is more on tools)
+* [GitHub - DataExpert-io/data-engineer-handbook](https://github.com/DataExpert-io/data-engineer-handbook) (contains tools,blogs and more)
+
 
 
 ## License

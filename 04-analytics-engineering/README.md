@@ -1,122 +1,102 @@
-# Module 4: Analytics Engineering 
+# Module 4: Analytics Engineering
+
 Goal: Transforming the data loaded in DWH into Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
 
 ### Prerequisites
-By this stage of the course you should have already: 
 
-- A running warehouse (BigQuery or postgres) 
-- A set of running pipelines ingesting the project dataset (week 3 completed)
-- The following datasets ingested from the course [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/): 
-  * Yellow taxi data - Years 2019 and 2020
-  * Green taxi data - Years 2019 and 2020 
-  * fhv data - Year 2019. 
+The prerequisites depend on which setup path you choose:
 
-> [!NOTE]  
-> * We have two quick hack to load that data quicker, follow [this video](https://www.youtube.com/watch?v=Mork172sK_c&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs) for option 1 or check instructions in [week3/extras](../03-data-warehouse/extras) for option 2
+**For Cloud Setup (BigQuery):**
 
-## Setting up your environment 
-  
-> [!NOTE]  
->  the *cloud* setup is the preferred option.
->
-> the *local* setup does not require a cloud database.
+- Completed [Module 3: Data Warehouse](../03-data-warehouse/) with:
+  - A GCP project with BigQuery enabled
+  - Service account with BigQuery permissions
+  - NYC taxi data loaded into BigQuery (yellow and green taxi data for 2019-2020)
 
-| Alternative A | Alternative B |
----|---|
-| Setting up dbt for using BigQuery (cloud) | Setting up dbt for using Postgres locally  |
-|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)<br><br> |
-| - [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)) | - follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or <br>- follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker or <br>- use a docker image from oficial [Install with Docker](https://docs.getdbt.com/docs/core/docker-install). |
-|- More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)  | - You will need to install the latest version with the BigQuery adapter (dbt-bigquery).|
-| | - You will need to install the latest version with the postgres adapter (dbt-postgres).|
-| | After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup) |
+**For Local Setup (DuckDB):**
 
+- No prerequisites! The local setup guide will walk you through downloading and loading the data.
+
+> [!NOTE]
+> This module focuses on **yellow and green taxi data** (2019-2020). While Module 3 may have included FHV data, it is not used in this dbt project.
+
+## Setting up your environment
+
+Choose your setup path:
+
+### 🏠 [Local Setup](setup/local_setup.md)
+
+- **Stack**: DuckDB + dbt Core
+- **Cost**: Free
+- [→ Get Started](setup/local_setup.md)
+
+### ☁️ [Cloud Setup](setup/cloud_setup.md)
+
+- **Stack**: BigQuery + dbt Cloud
+- **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
+- **Requires**: Completed Module 3 with BigQuery data
+- [→ Get Started](setup/cloud_setup.md)
 
 ## Content
 
-### Introduction to analytics engineering
+### Introduction to Analytics Engineering
 
-* What is analytics engineering?
-* ETL vs ELT 
-* Data modeling concepts (fact and dim tables)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/HxMIsPrIyGQ)](https://www.youtube.com/watch?v=HxMIsPrIyGQ)
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
+### Introduction to data modeling
 
-### What is dbt? 
+[![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://www.youtube.com/watch?v=uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
 
-* Introduction to dbt 
+### What is dbt?
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/gsKuETFJr54)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
 
-## Starting a dbt project
+### Differences between dbt Core and dbt Cloud
 
-| Alternative A  | Alternative B   |
-|-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
-| - Starting a new project with dbt init (dbt cloud and core)<br>- dbt cloud setup<br>- project.yml<br><br> | - Starting a new project with dbt init (dbt cloud and core)<br>- dbt core local setup<br>- profiles.yml<br>- project.yml                                  |
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/iMxh6s_wL4Q)](https://www.youtube.com/watch?v=J0XCDyKiU64&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=4) | [![](https://markdown-videos-api.jorgenkh.no/youtube/1HmL63e-vRs)](https://youtu.be/1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) |
+[![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/watch?v=auzcdLRyEIk)
 
-### dbt models
-
-* Anatomy of a dbt model: written code vs compiled Sources
-* Materialisations: table, view, incremental, ephemeral  
-* Seeds, sources and ref  
-* Jinja and Macros 
-* Packages 
-* Variables
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/UVI30Vxzd6c)](https://www.youtube.com/watch?v=ueVy2N54lyc&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=3)
-
-> [!NOTE]  
-> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
-
-> [!TIP] 
->* If you recieve an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
->
->[![](https://markdown-videos-api.jorgenkh.no/youtube/kL3ZVNL9Y4A)](https://youtu.be/kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
-
-### Testing and documenting dbt models
-* Tests  
-* Documentation 
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/UishFmq1hLM)](https://www.youtube.com/watch?v=2dNJXHFCHaY&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=2)
-
->[!NOTE]  
-> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
-
-## Deployment
+### Project Setup
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
-| - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=6) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
+| BigQuery + dbt Platform | DuckDB + dbt core |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/GFbwlrt6f54)](https://www.youtube.com/watch?v=GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/youtube/GoFAbJYfvlw)](https://www.youtube.com/watch?v=GoFAbJYfvlw) |
 
-## Visualising the transformed data
+### dbt Course
 
-:movie_camera: Google data studio Video (Now renamed to Looker studio)
+| dbt Project Structure | dbt Sources | dbt Models | Seeds and Macros |
+|-----------------------|-------------|------------|------------------|
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://www.youtube.com/watch?v=2dYDS4OQbT0) | [![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://www.youtube.com/watch?v=7CrrXazV_8k) | [![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://www.youtube.com/watch?v=JQYz-8sl1aQ) | [![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://www.youtube.com/watch?v=lT4fmTDEqVk) |
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/39nLTs74A3E)](https://youtu.be/39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=48)
+| dbt Tests | Documentation | dbt Packages | dbt Commands |
+|-----------|---------------|----------------------|---------------|
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/bvZ-rJm7uMU)](https://www.youtube.com/watch?v=bvZ-rJm7uMU) | [![](https://markdown-videos-api.jorgenkh.no/youtube/UqoWyMjcqrA)](https://www.youtube.com/watch?v=UqoWyMjcqrA) | [![](https://markdown-videos-api.jorgenkh.no/youtube/KfhUA9Kfp8Y)](https://www.youtube.com/watch?v=KfhUA9Kfp8Y) | [![](https://markdown-videos-api.jorgenkh.no/youtube/t4OeWHW3SsA)](https://www.youtube.com/watch?v=t4OeWHW3SsA) |
 
-:movie_camera: Metabase Video
+## Troubleshooting
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
+- [DuckDB Troubleshooting Guide](setup/duckdb_troubleshooting.md) — If you're getting OOM errors during `dbt build` with DuckDB
 
- 
-## Advanced concepts
+## Extra resources
 
- * [Make a model Incremental](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models)
- * [Use of tags](https://docs.getdbt.com/reference/resource-configs/tags)
- * [Hooks](https://docs.getdbt.com/docs/building-a-dbt-project/hooks-operations)
- * [Analysis](https://docs.getdbt.com/docs/building-a-dbt-project/analyses)
- * [Snapshots](https://docs.getdbt.com/docs/building-a-dbt-project/snapshots)
- * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
- * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
+> [!NOTE]
+> If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
 
+## SQL refresher
 
-## Community notes
+The homework for this module focuses heavily on window functions and CTEs. If you need a refresher on these topics, you can refer to these notes.
 
-Did you take notes? You can share them here.
+* [SQL refresher](refreshers/SQL.md)
 
+## Homework
+
+* [2026 Homework](../cohorts/2026/04-analytics-engineering/homework.md)
+
+# Community notes
+
+<details>
+<summary>Did you take notes? You can share them here</summary>
+
+* [Slides used in previous years](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/4_analytics.md)
 * [Sandy's DE learning blog](https://learningdataengineering540969211.wordpress.com/2022/02/17/week-4-setting-up-dbt-cloud-with-bigquery/)
 * [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week4)
@@ -132,9 +112,10 @@ Did you take notes? You can share them here.
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/4_Analytics-Engineering/README.md)
+* [2025 Notes by Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-4-Analytics-Engineering-18929780dc4a808692e4e0ee488bf49c?pvs=74)
+* [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/04_01_Analytics_Engineering.pdf)
+* [2026 Notes by Sharad K. Gupta](https://github.com/sharadgupta27/data-engineering/blob/main/Notes/dbt_commands.md)
 * Add your notes here (above this line)
 
-## Useful links
-- [Slides used in the videos](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
-- [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
-- [dbt free courses](https://courses.getdbt.com/collections)
+</details>

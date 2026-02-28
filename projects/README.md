@@ -1,5 +1,8 @@
 ## Course Project
 
+[🎥 Projects how-to (watch it!)](https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6)
+
+
 ### Objective
 
 The goal of this project is to apply everything we have learned
@@ -40,7 +43,7 @@ If you're not certain about some tools, ask in Slack.
 
 ## Dashboard
 
-You can use any of the tools shown in the course (Data Studio or Metabase) or any other BI tool of your choice to build a dashboard. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
+You can use any of the tools shown in the course (Looker Studio or Streamlit) or any other BI tool of your choice to build a dashboard. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
 
 Your dashboard should contain at least two tiles, we suggest you include:
 
@@ -136,7 +139,7 @@ Refer to the provided [datasets](datasets.md) for possible selection.
 * [Unit Tests + CI for Airflow](https://www.astronomer.io/events/recaps/testing-airflow-to-bulletproof-your-code/)
 * [CI/CD for Airflow (with Gitlab & GCP state file)](https://engineering.ripple.com/building-ci-cd-with-airflow-gitlab-and-terraform-in-gcp)
 * [CI/CD for Airflow (with GitHub and S3 state file)](https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/)
-* [CD for Terraform](https://towardsdatascience.com/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc)
+* [CD for Terraform](https://medium.com/towards-data-science/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc)
 * [Spark + Airflow](https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b)
 
 
