@@ -1,6 +1,6 @@
 ## Course Project
 
-[🎥 Projects how-to (watch it!)](https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6)
+[🎥 Projects how-to (watch it!)](https://www.youtube.com/watch?v=BL0E8xO8OnE)
 
 
 ### Objective
@@ -17,6 +17,10 @@ Develop a dashboard with two tiles by:
 * Creating a pipeline for moving the data from the lake to a data warehouse
 * Transforming the data in the data warehouse: prepare it for the dashboard
 * Building a dashboard to visualize the data
+
+### Datasets you cannot use
+
+The NYC taxi dataset is used throughout the course modules and homework. It cannot be used for the project. Pick any other dataset.
 
 
 ## Data Pipeline 
@@ -116,6 +120,19 @@ However, implementing these could significantly enhance the quality of your proj
 * Add CI/CD pipeline
 
 If you intend to include this project in your portfolio, adding these additional features will definitely help you to stand out from others.
+
+## Suggestions from peer reviewers
+
+These tips come from peers who reviewed multiple projects and noticed recurring issues. Following them will help you avoid common pitfalls and make your project easier to evaluate.
+
+From Pável Kalmykov Razgovórov:
+
+* Test your repo from a clean clone before submitting. Two of the three referenced files or directories that were never committed (config folders, requirements.txt in the wrong path, volumes pointing to nonexistent dirs). If it's not in the repo, the reviewer can't use it.
+* Don't hardcode local paths or personal cloud project IDs. Use environment variables instead.
+* Handle external API failures. If your script fetches data from a URL, make sure it handles cases where the URL returns a 404 or 500 gracefully.
+* Run `docker compose up` at least once before submitting. One project had a SyntaxError in a config file that prevented any container from starting.
+* Keep your README consistent with the code. Watch out for docker-compose files pointing to old services, .env.example with wrong ports, or instructions referencing directories that don't exist.
+* If your dbt project uses external packages, make sure `dbt deps` runs somewhere. Two projects needed dbt_utils but never installed it.
 
 ## Cheating and plagiarism
 

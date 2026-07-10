@@ -19,7 +19,7 @@ wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.par
 What's the output?
 
 > [!NOTE]
-> To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/pyspark.md)
+> To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/)
 
 
 ## Question 2: Yellow November 2025
@@ -84,6 +84,7 @@ Using the zone lookup data and the Yellow November 2025 data, what is the name o
 - Rikers Island
 - Jamaica Bay
 
+If multiple answers are correct, select any
 
 ## Submitting the solutions
 
