@@ -16,7 +16,7 @@ To get a `wget`-able link, use this prefix (note that the link itself gives 404)
 
 So far in the course, we processed data for the year 2019 and 2020. Your task is to extend the existing flows to include data for the year 2021.
 
-![homework datasets](../../../02-workflow-orchestration/images/homework.png)
+![homework datasets](../../../02-workflow-orchestration/images/homework-cropped.png)
 
 As a hint, Kestra makes that process really easy:
 1. You can leverage the backfill functionality in the [scheduled flow](../../../02-workflow-orchestration/flows/06_gcp_taxi_scheduled.yaml) to backfill the data for the year 2021. Just make sure to select the time period for which data exists i.e. from `2021-01-01` to `2021-07-31`. Also, make sure to do the same for both `yellow` and `green` taxi data (select the right service in the `taxi` input).

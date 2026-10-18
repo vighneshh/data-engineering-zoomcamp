@@ -1,0 +1,43 @@
+schema_version: 2
+content_id: aeeff1c9-a209-4e0e-83bc-d9a98594aaa1
+slug: de-zoomcamp
+title: Data Engineering Zoomcamp
+current_cohort: "2027"
+cohorts:
+  - identifier: "2027"
+    content: root
+  - identifier: "2026"
+    content: cohorts/2026
+    legacy: true
+  - identifier: "2025"
+    content: cohorts/2025
+    legacy: true
+  - identifier: "2024"
+    content: cohorts/2024
+    legacy: true
+  - identifier: "2023"
+    content: cohorts/2023
+    legacy: true
+  - identifier: "2022"
+    content: cohorts/2022
+    legacy: true
+description: |
+  Data Engineering Zoomcamp is a free, intensive course that takes you from data engineering fundamentals to building production-grade data pipelines with industry-standard tools. No previous data engineering experience is required.
+
+  The course runs for ten weeks: seven weeks of modules covering containerization and infrastructure as code, workflow orchestration, data warehousing, analytics engineering, batch processing, and streaming, followed by three weeks for a final project. Each module has video lectures, reading material, and a homework assignment.
+outcome: Build production-grade data pipelines with industry-standard tools, starting from data engineering fundamentals.
+starting_point: You are new to data engineering and want to understand how production data pipelines fit together.
+prerequisites: You can write Python and SQL, use the command line, and have some Docker familiarity.
+progression:
+  - heading: I can write code, but the pipeline is still a black box
+    description: I want to understand how data moves from a source into a dependable analytical system.
+  - heading: I connect every stage of the data journey
+    description: I practice ingestion, orchestration, warehousing, analytics engineering, batch processing, and streaming.
+  - heading: I ship a production-grade data pipeline
+    description: I bring the tools together in a final project that takes data from ingestion to useful output.
+urls:
+  repository: https://github.com/DataTalksClub/data-engineering-zoomcamp
+  docs: https://datatalks.club/docs/courses/data-engineering-zoomcamp/
+  faq: https://datatalks.club/faq/data-engineering-zoomcamp.html
+hashtag: dezoomcamp
+published: true
